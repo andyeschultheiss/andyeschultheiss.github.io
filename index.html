@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Head -->
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="Software Developer Portfolio Site">
+        <meta name="author" content="Andy Schultheiss">
+
+		<title>Andy Schultheiss | Software Developer</title>
+
+		<link rel="stylesheet" type="text/css" href="./css/portfolio-site.css">
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="./JS/portfolio_JS.js"></script>
+	</head>
+
+<!-- Body -->
+<body class="Background"> 
+
+<!-- Navbar -->
+	<div class="Navbar">
+		<a class="active" href="#Home">Home</a>
+		<a href="#Slideshow">Slideshow</a> 
+		<a href="#AboutMe">About</a>
+		<a href="#GitHub">GitHub</a>
+		<a onclick="checkForm()" href="#Contact">Contact</a>
+	</div>
+
+<!-- Home -->
+		<br> <!-- Breaks inserted to add space between navbar and first heading -->
+		<br>
+
+<!-- Video -->
+	<div id="Home">
+		<video autoplay muted loop class="Background_Video"> <!-- Makes the video play automatically, on a loop and with no sound -->
+			<source src="./video/Keyboard.mp4" type="video/mp4">
+			Your browser does not support HTML5 video. <!-- Display message if video fails -->
+		</video>
+	</div>
+
+<!-- Video text --> 
+	<div class="Video_Text"> 
+		<h1 style="color:white;">Andy Schultheiss</h1>
+		<h2 style="color:white;">Software Developer</h2>
+			<p> 
+				<strong>
+					<center>
+						<q> For a long time it puzzled me how something so expensive, so leading edge, could be so useless. 
+						<br> And then it occurred to me that a computer is a stupid machine with the ability to do incredibly smart things, 
+						<br> while computer programmers are smart people with the ability to do incredibly stupid things. 
+						<br> They are, in short, a perfect match.
+						</q>	
+						<br> - Bill Bryson <br>
+						<br> Welcome to my portfolio website. Please take a moment to read about my background and experience.<br>
+						<br> Thank you for stopping by and enjoy! 
+					</center>	
+				</strong>
+			</p> 
+	</div>
+
+<!-- Slideshow Ribbon -->
+	<div class="slideshow_background" id="Slideshow">
+		<!-- images with numbering and caption text -->
+		<div id="slideshow-container">
+			<div class="mySlides fade">
+				<div class="numbertext">1 / 5</div>
+				<img src="./images/HTML5-CSS3.jpg" style="width:100%" alt="HTML, CSS, and JavaScript shields">
+				<div class="slidesText">I am proficient in the full stack of web development: HTML, CSS, and JavaScript</div>
+			</div>
+
+			<div class="mySlides fade">
+				<div class="numbertext">2 / 5</div>
+				<img src="./images/ReactJS.png" style="width:100%" alt="React logo">
+				<div class="slidesText">I also have experience with several JS libraries, including React</div>
+			</div>
+
+			<div class="mySlides fade">
+				<div class="numbertext">3 / 5</div>
+				<img src="./images/python-logo-png.png" style="width:100%" alt="Python logo">
+				<div class="slidesText">I am also trained in the popular language Python</div>
+			</div>
+
+			<div class="mySlides fade">
+				<div class="numbertext">4 / 5</div>
+				<img src="./images/Csharp_Logo.png" style="width:100%" alt="C# logo">
+				<div class="slidesText">As well as C# and .NET framework</div>
+			</div>
+
+			<div class="mySlides fade">
+				<div class="numbertext">5 / 5</div>
+				<img src="./images/close-up-computer.jpg" style="width:100%" alt="Laptop stock image">
+				<div class="slidesText"> 
+					<a onclick="openForm()" href="#Contact" style="color:white; text-decoration:none">Contact me now!</a>
+				</div>
+			</div>
+
+			<!-- Previous and Next buttons -->
+			<a class="prev" onclick="moveSlides(-1)">&#10094; </a>
+			<a class="next" onclick="moveSlides(1)"> &#10095;</a>
+		</div><br>
+
+		<!-- Jump Dots -->
+		<div style="text-align:center">
+			<span class="dot" onclick="jumpSlide(1)"></span>
+			<span class="dot" onclick="jumpSlide(2)"></span>
+			<span class="dot" onclick="jumpSlide(3)"></span>
+			<span class="dot" onclick="jumpSlide(4)"></span>
+			<span class="dot" onclick="jumpSlide(5)"></span>
+		</div>
+	</div>
+
+	<script>
+	//Slideshow code section
+	let slideIndex = 1;
+	showSlides(slideIndex);
+
+	/* Previous and Next Function */
+	function moveSlides(n) {
+	showSlides(slideIndex += n);
+	}
+
+	/* Jump to slide */
+	function jumpSlide(n) {
+	showSlides(slideIndex = n);
+	}
+
+	function showSlides(n) {
+	var i;
+	var slides = document.getElementsByClassName("mySlides");
+	var dots = document.getElementsByClassName("dot");
+
+	if (n > slides.length) {
+		slideIndex = 1;
+	}    
+	if (n < 1) {
+		slideIndex = slides.length;
+	}
+	for (i = 0; i < slides.length; i++) {
+		slides[i].style.display = "none";  
+	}
+	for (i = 0; i < dots.length; i++) {
+		dots[i].className = dots[i].className.replace(" active", "");
+	}
+
+	slides[slideIndex-1].style.display = "block";  
+	dots[slideIndex-1].className += " active";
+	}
+	</script>
+
+<!-- About section -->
+	<div class="Row" id="About"> 
+		<div class="Column_2"> <!-- Left column -->
+			<img class="columnThumb" src="./images/coding-glasses.jpg" alt="Screen of code behind glasses">
+		</div>
+  
+		<div class="Column_1" id="AboutMe"> <!-- Right column -->
+			<h2>About Me</h2>
+				<p>I'm a Portland, Oregon-based full-stack software developer with a passion for coding and lifelong learning. My interests include coffee, cycling, and crossword puzzles.<br><br>I am a graduate of <a href="https://www.learncodinganywhere.com" target="_blank">The Tech Academy</a>’s Software Developer Boot Camp, and trained and experienced in the following web and programming languages: HTML, CSS, JavaScript, SQL, C#, Python, and more. <br><br>I love new projects and opportunities to learn. <a href="#Contact">Contact</a> me below with any questions or if you think I could help with your next project!</p>
+		</div>
+	</div>
+
+<!-- GitHub section -->
+	<div class="Row" id="GitHub">
+		<div class="Column_1"> <!-- Left column -->
+			<h2>GitHub</h2>
+				<p>You can view my coding projects on my GitHub profile here:<br>
+				<center><a href="https://github.com/andyeschultheiss" target="_blank">My GitHub Page</a></center></p>
+		</div>
+		
+		<div class="Column_2"> <!-- Right column -->
+			<a href="https://github.com/andyeschultheiss" target="_blank"><img class="columnThumb" src="./images/Octocat.png" alt="GitHub Octocat"></a>
+		</div>
+	</div>
+
+<!-- Contact section -->
+	<div id="Contact"> 
+		<button onclick="openForm()" class="PopUp_Button"> CONTACT </button>
+		<div class="form-popup" id="myForm">
+			<form action="https://formspree.io/mgezgrda" method="POST" class="form-container">
+				<h1>Contact</h1>
+				<label for="name"><b>Name</b></label>
+				<input type="text" placeholder="Type your name here" name="name" required>
+				<label for="email"><b>Email</b></label>		
+				<input type="text" placeholder="Type your email address here" name="_replyto" required>
+				<label for="message"><b>Message</b></label>
+				<input type="text" placeholder="Type your message here" name="message">
+	
+				<button type="submit" class="btn okay">SUBMIT</button>
+				<button type="button" class="btn cancel" onclick="closeForm()">CLOSE</button>
+			</form>
+	  	</div>
+    </div>
+	
+<!-- Footer section -->
+	<footer>
+		<p>
+			<center>&copy; 2020 | <a href="mailto:andy.e.schultheiss@gmail.com">Andy Schultheiss</a></center><br>
+		</p>
+	</footer>
+
+</body>
+
+</html>

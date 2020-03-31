@@ -1,0 +1,420 @@
+
+html {
+	scroll-behavior: smooth;
+}
+
+
+* {
+	box-sizing: border-box;
+}
+
+/* Body */
+body {
+	margin: 0%;
+	opacity: 1;
+    transition: 1s opacity;
+}
+
+/* This section contributes to the fade effect for the page that occurs when the page is loaded */
+body.fade-out {
+    opacity: .1; /* This sets the level of opacity at the start of page load */
+    transition: none;
+}
+
+/* Navbar */
+.Navbar {
+	overflow: hidden;
+	background-color: #1b262c;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 1; /* Keep atop other elements */
+	-webkit-animation: moveNav 1.5s;
+    animation: moveNav 1.5s;
+}
+
+/* Navbar text */
+.Navbar a {
+	float: left;
+	display: block;
+	color: #ffffaf;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-family: Helvetica;
+	font-weight: bold;
+	font-size: 1.25rem;
+	text-align: center;
+	-webkit-animation: moveNavText 1.5s;
+    animation: moveNavText 1.5s;
+}
+
+/* animation effect for moving nav bar in from above top of screen on page load */
+@keyframes moveNav {
+	from {top: -100vw;}
+	to {top: 0vw;}
+}
+  
+/* animation effect for moving nav bar in from above top of screen on page load */
+@keyframes moveNavText {
+	from {top: -100vw;}
+	to {top: 0vw;}
+}
+
+/* Navbar hover effect */
+.Navbar a:hover {
+	background-color: #0f4c81;
+	color: #ff8c4e; 
+}
+
+/* Navbar home button */
+.Navbar a.active {
+  background-color: #0f4c81;
+}
+
+/* Background Video */
+.Background_Video {
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	min-width: 100%;
+	z-index: -1; /* Keep underneath other elements */
+}
+
+/* Text over the video */ 
+.Video_Text { 
+	background: rgba(0, 0, 0, 0.5); /* This provides a semi-transparent background for the text to sit over */
+	color: rgb(255,255,255); 
+	width: 100%;
+	padding-top: 1vh;
+	padding-bottom: 1vh;
+	margin-top: 24%;
+	position: relative;
+}
+
+.Column_1 {
+	float: left;  
+	width: 50%; /* This ensures one column takes up half the page width */
+	padding: 2%; 
+	padding-top: 1%;
+	height: 400px;
+	background-color: #ffc799; 
+}
+
+.Column_2 {
+	float: left;
+	width: 50%;
+	padding: 2%;
+	padding-top: 1%;
+	height: 400px;
+	background-color: #253e4e;
+}
+
+.Row:after {
+	content: ""; /* By leaving this blank, we are allowing the footer (covered lower down) to be displayed - removing it makes the footer overwrite a column */
+	display: table;
+	clear: both; /* This clears any other elements from floating to the left or right of an element */
+}
+
+/* Heading 1, 2, & 3 elements */
+h1, h2, h3 {
+	font-family: 'Open Sans';
+	font-weight: 700;
+	letter-spacing: 3px;
+	text-align: center;
+	margin-top: 1%;
+	color: #1a1a1a;
+}
+
+/* Paragraph elements */
+p {
+	font-family: 'Open Sans';
+	text-align: justify;
+	letter-spacing: 0.1vw;
+	font-size: 1.25rem;
+	padding-left: 3%;
+	padding-right: 3%;
+}
+
+/* Center align elements */
+center {
+	font-family: 'Open Sans';
+	text-align: center;
+	letter-spacing: 0.1vw;
+	font-size: 1.25rem;
+	padding-left: 2vw;
+	padding-right: 2vw;
+}
+
+/* Anchor elements */
+a {
+	color: rgb(21, 192, 121);
+}
+
+/* Quotation elements */
+q {
+	font-style: italic;
+	font-weight: bold;
+}
+
+img {
+	object-fit: contain;
+	display: block;
+}
+
+/* Column image elements */
+.columnThumb {
+	filter: grayscale(50%); /* Render colors muted initially */
+    border-radius: 3%;
+    max-width: 100%; 
+    height: 340px; 
+	margin-left: auto;
+    margin-right: auto;
+	display: block;
+}
+
+/* Column image element hover effects */
+.columnThumb:hover {
+	filter: grayscale(5%);  /* Brings back most of the image's color when hovered over */
+    transition: transform 1s;
+	transform: scale(1.05);  /* Scale up image slightly when hovered */
+}
+
+/* Video effects */
+video {
+	filter: grayscale(25%); /* Mute video colors slightly */
+}
+
+/* slideshow ribbon */
+.slideshow_background {
+	background-color: #4d1e3d;
+}
+  
+/* Slideshow container */
+#slideshow-container {
+  position: relative;
+  margin: auto;
+  height: auto;
+  width: 30vw;
+}
+
+/* Hide images by default */
+.mySlides {
+  vertical-align: middle;
+  height: auto;
+  width: auto;
+  display: none;
+  object-fit: contain;
+  box-shadow: 0px 5px 8px 8px rgba(0, 0, 0, .75);
+} 
+
+/* Previous & Next buttons */
+.prev, .next {
+  background-color: rgba(0,0,0,0.4);
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 1rem;
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  font-style: bold;
+  transition: 0.5s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add black background with transparency*/
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.7);
+}
+
+/* Caption text */
+.slidesText {
+  background-color: rgba(0,0,0,0.5);
+  color: #f2f2f2;
+  font-size: 1.25rem;
+  font-style: italic;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+  z-index: 1;
+}
+
+/* Number text */
+.numbertext {
+  background-color: rgba(0,0,0,0.5);
+  color: #f2f2f2;
+  font-size: 1.25rem;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 1vw;
+  width: 1vw;
+  margin: 0.3vw;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.5s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.active, .dot:hover {
+  background-color: #5a5a5a;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .5}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .5}
+  to {opacity: 1}
+}
+
+
+/* Form elememt */
+form {
+	background-color: #d4d4d4;
+	padding: 12px;
+	font-family: 'Open Sans';
+	max-height: 100%;
+	max-width: 100%;
+}
+
+/* Makes contact form button slide in from right on page load */
+@keyframes movePopup {
+  from {right: -50vw;}
+  to {bottom: 2vw;}
+}
+
+/* Button to open contact form - fixed at bottom of page */
+.PopUp_Button {
+  bottom: 2vw;
+  right: 2vw;
+  width: 15vw;  
+  background-color: #d4d4d4;
+  color: #253e4e;
+  border: solid;
+  cursor: pointer;
+  position: fixed;
+  -webkit-animation: movePopup 2s;
+  animation: movePopup 2s;
+}
+
+/* popup form - hidden by default */
+.form-popup {
+  border: 2px solid #f0f0f0;
+  z-index: 10; /* keep on top */
+  display: none;
+  position: fixed;
+  bottom: 6px;
+  right: 6px;
+}
+
+/* Form styling */
+.form-container {
+  max-width: 35vw;
+  padding: 8px;
+  background-color: #d4d4d4;
+}
+
+/* Input fields */
+.form-container input[type=text] {
+  width: 100%;
+  padding: 1vw;
+  margin: 0.5vw 0 0.5vw 0;
+  border: none;
+  background: white;
+  font-family: Helvetica;
+  font-size: 1vw; 
+  text-align: left;
+}
+
+/* Submit button */
+.form-container .btn {
+  background-color: #d4d4d4;
+  color: black;
+  border-color: black;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+}
+
+/* Close button */
+.form-container .cancel {
+  background-color: black;
+  color: white;
+  border-color: #d4d4d4;
+}
+
+/* Button styling */
+button {
+  font-family: "Trebuchet MS"; 
+  letter-spacing: 0.1vw; 
+  font-size: 1vw;
+  font-weight: bold;
+  padding: 1.5vw 1.5vw;
+  border-style: solid;
+  cursor: pointer;
+  width: 100%;
+  height: auto;
+}
+
+/* Hover effect for buttons */
+button:hover, .form-container .btn:hover{
+  color: white;
+  background-color: black;
+  -webkit-transition-duration: 1s; 
+  transition-duration: 1s;
+  border-style: solid;
+  border-color: silver;
+}
+
+.form-container .okay:hover {
+	color: white;
+	background-color: rgb(25, 155, 75);
+	-webkit-transition-duration: 1s; 
+	transition-duration: 1s;
+	border-style: solid;
+	border-color: #d4d4d4;
+}
+
+.form-container .cancel:hover{
+  color: white;
+  background-color: rgb(186, 20, 20);
+  -webkit-transition-duration: 1s; 
+  transition-duration: 1s;
+  border-style: solid;
+  border-color: black;
+}
+
+
+/* Footer element */
+footer {
+	padding: 2%;
+	background-color: white;
+}
